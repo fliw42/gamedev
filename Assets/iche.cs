@@ -8,6 +8,7 @@ public class iche : MonoBehaviour
     void Start()
     {
         Debug.Log("A");
+        Debug.Log("pon");
     }
 
     // Update is called once per frame
