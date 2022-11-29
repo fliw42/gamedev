@@ -7,7 +7,7 @@ public class iche : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("A");
     }
 
     // Update is called once per frame
