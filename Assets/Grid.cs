@@ -2,20 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Grid : MonoBehaviour
 {
     [SerializeField] private Vector2Int _size;
+    [Header("Noise")]
     [SerializeField] private Level[] _levels;
-    [SerializeField] private float _perlinNoiseScale = 0.1f;
+    [Header("Mesh")]
+    [SerializeField] private GameObject _platform;
+    
     private Cell[,] _grid;
-
     private void Start()
+    {
+        Generate();
+        StartCoroutine(Spawn());
+    }
+
+    private void Generate()
     {
         float[,] noiseMap = new float[_size.x, _size.y];
         for (int x=0; x<_size.x; x++)
         for (int y = 0; y < _size.x; y++)
-            noiseMap[x, y] = Mathf.PerlinNoise(x * _perlinNoiseScale, y * _perlinNoiseScale);
+            noiseMap[x, y] = Mathf.PerlinNoise(x + Random.Range(0, 1000), y + Random.Range(0, 1000));
         
         
         _grid = new Cell[_size.x, _size.y];
@@ -38,31 +47,24 @@ public class Grid : MonoBehaviour
             }
         }
     }
-
-    private void OnDrawGizmos()
+    
+    private IEnumerator Spawn()
     {
-        if (!Application.isPlaying)
-            return;
-
+        int count = 0;
+        
         for (int x = 0; x < _size.x; x++)
         {
             for (int y = 0; y< _size.y; y++)
             {
-                Cell cell = _grid[x, y];
-                switch (cell.LandType)
-                {
-                    case LandType.Grass:
-                        Gizmos.color = Color.green;
-                        break;
-                    case LandType.Water:
-                        Gizmos.color = Color.blue;
-                        break;
-                    case LandType.Rock:
-                        Gizmos.color = Color.grey;
-                        break;
-                }
                 Vector3 pos = new Vector3(x ,0,y);
-                Gizmos.DrawCube(pos, Vector3.one);
+                Instantiate(_platform, pos, Quaternion.identity);
+                count++;
+
+                if (count > 100)
+                {
+                    count = 0;
+                    yield return null;
+                }
             }
         }
     }

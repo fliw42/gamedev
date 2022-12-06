@@ -160,7 +160,7 @@ MonoBehaviour:
     landtype: 1
   - maxLevel: 1
     landtype: 2
-  _perlinNoiseScale: 0.1
+  _platform: {fileID: 1424363107676054235, guid: a88cc72551f44324db0b41a63f762809, type: 3}
 --- !u!4 &637031893
 Transform:
   m_ObjectHideFlags: 0
