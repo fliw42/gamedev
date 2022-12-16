@@ -152,15 +152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ad09d821d8cf146b6f9e73e33015de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: {x: 100, y: 100}
+  _size: 100
+  _terrain: {fileID: 2100000, guid: f08315eaaf5ceb94aa2f49960c798fb1, type: 2}
+  _edge: {fileID: 2100000, guid: 8265f35c685d84942b318b7647f9c356, type: 2}
   _levels:
   - maxLevel: 0.3
-    landtype: 0
+    landType: 0
   - maxLevel: 0.6
-    landtype: 1
+    landType: 1
   - maxLevel: 1
-    landtype: 2
-  _platform: {fileID: 1424363107676054235, guid: a88cc72551f44324db0b41a63f762809, type: 3}
+    landType: 2
 --- !u!4 &637031893
 Transform:
   m_ObjectHideFlags: 0
@@ -186,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -270,6 +272,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,8 +368,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.0048380643, y: -0.95998466, z: 0.27966923, w: -0.013827145}
+  m_LocalPosition: {x: 52.35819, y: 59.406723, z: 145.07108}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

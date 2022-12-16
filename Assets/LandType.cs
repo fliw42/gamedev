@@ -1,6 +1,6 @@
-public enum LandType
+﻿public enum LandType
 {
     Water = 0,
     Grass = 1,
-    Rock = 2,
+    Rock = 2
 }
